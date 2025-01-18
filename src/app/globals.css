@@ -2,20 +2,207 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
+
+
+.show-width-preview {
+  background: #d6ff002b;
+  border: 3px solid;
+}
+
+.plain_button {
+  border-radius: 50vw;
+  position: relative;
+  padding: 0 15px;
+  margin: 0 0 0 0;
+  height: 42px;
+  font-size: 16px;
+  color: var(--abt-gray-40);
+  text-decoration: none;
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+  border: 2px solid var(--abt-gray-80);
+  line-height: 40px;
+  font-family: "nunito_sans",Arial,Helvetica;
+}
+
+
+.slideshow_container {
+  position: relative;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.slideshow_text_container {
+  position: absolute;
+  height: 100%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  padding: 2vw;
+}
+
+.slideshow_text_container.top_justified { justify-content: flex-start; }
+.slideshow_text_container.middle_justified { justify-content: center; }
+.slideshow_text_container.bottom_justified { justify-content: flex-end; }
+.slideshow_text_container.left_justified { text-align: left; }
+.slideshow_text_container.right_justified { text-align: right; }
+.slideshow_text_container.center_justified { text-align: center; }
+.slideshow_text_container.left_position { top: 0; left: 0; }
+.slideshow_text_container.right_position { top: 0; right: 0; }
+
+
+.slideshow_header {
+  font-size: 2.7vw;
+  font-weight: normal;
+  line-height: 2.8vw;
+}
+
+.slideshow_subheader {
+  font-size: 1.7vw;
+  font-weight: normal;
+  line-height: 1.8vw;
+}
+
+.slideshow_button_container { margin: 20px 0 0 0; }
+
+.slideshow_button {
+  width: auto;
+  display: inline-block;
+  padding: .7em 2em .6em;
+  height: auto;
+  line-height: 1;
+  font-size: 1vw;
+}
+
+.slideshow_button.plain_button { font-weight: bold; }
+
+
+@media screen and (min-width: 1660px) {
+  .slideshow_text_container { padding: 20px !important;}
+  .slideshow_button {
+    width: auto;
+    height: 42px;
+    padding: 0 30px;
+    line-height: 40px;
+    font-size: 16px;
+  }
+  .slideshow_header {
+    font-size: 40px !important;
+    line-height: 40px !important;
+  }
+  .slideshow_subheader {
+    font-size: 24px !important;
+    line-height: 24px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slideshow_text_container {
+    position: relative;
+    text-align: center;
+    width: 100% !important;
+    padding: 0px !important;
+    margin: 15px 0 0 0;
+    overflow: hidden;
+    text-align: center !important;
+  }
+  .slideshow_button_container { display: none; }
+  .slideshow_header {
+    font-size: 4vw !important;
+    line-height: 4.1vw !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 30px;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    color: #000 !important;
+  }
+  .slideshow_subheader {
+    font-size: 2.5vw !important;
+    line-height: 2.6vw !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 20px;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    color: #000 !important;
+  }
+}
+
+
